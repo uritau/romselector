@@ -70,9 +70,6 @@ Create your pull request!
 * **Oriol Tauleria** - [uritau](https://github.com/uritau)
 
 ## To Do
-* Fer un output de l'estil:
-* for tag in tag_list:
-* print (Do you would to copy files with tag %s? There are %s",tag,count_roms_in_tag)"
-* capture input, and if yes, => list_roms_in_tag and cp for each rom_in_tag
-* At the end: There are some unique roms that could not be in your exported ones, do you wanna export too?
-* Modificar la captura de tags per un regex, entre parèntesis i dins dels parèntesis per cada
+* Create interactive selection, for each "tag" ask if the user would to add the games uder the tag.
+* Create the function to "copy"
+* After the selection ask user about "non-copied unique games". To clarify: A "unique game" is a game without versions or distribution zones.
