@@ -70,7 +70,6 @@ Create your pull request!
 * **Oriol Tauleria** - [uritau](https://github.com/uritau)
 
 ## To Do
-* Afegir al inici de l'array de cada rom, el nom del fitxer sense editar
 * Fer un output de l'estil:
 * for tag in tag_list:
 * print (Do you would to copy files with tag %s? There are %s",tag,count_roms_in_tag)"
