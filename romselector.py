@@ -38,7 +38,7 @@ def trim_files( roms_list ):
 def list_tags(roms_list):
     tag_list = []
     for rom in roms_list:
-        for i in range (1,len(rom)):
+        for i in range (2,len(rom)):
             if rom[i] not in tag_list:
                 tag_list.append(rom[i])
     return tag_list
@@ -59,6 +59,21 @@ def count_games_tags(tag_list,roms):
 def message_welcome():
     print ("Start program")
 
+
+def import_tag_selector(tags):
+    tag = tags[0]
+    print (tags)
+    answer = ""
+    while (answer != 'y') & (answer != 'n'):
+        answer = input("Do you would to import games under tag \"{}\"? (y/n)\n".format(tag))
+        if answer == 'y':
+            print("YUHUUU YES!")
+        elif answer == 'n':
+            print("Oh no, wtf")
+        # else:
+        #     print ("error!")
+
+
 def main():
     message_welcome()
     roms_dir = read_params()
@@ -66,6 +81,7 @@ def main():
     splitted_roms = trim_files(roms_list)
     tag_list = list_tags(splitted_roms)
     count_games_tags(tag_list,splitted_roms)
+    import_tag_selector(tag_list)
 
 if __name__== "__main__":
   main()
