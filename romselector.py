@@ -52,27 +52,38 @@ def count_games_tag(tag,roms):
 
 def count_games_tags(tag_list,roms):
     for tag in tag_list:
-        #print (tag)
         tag_count = count_games_tag(tag,roms)
-        #print(tag_count)
 
 def message_welcome():
     print ("Start program")
 
 
 def import_tag_selector(tags):
-    tag = tags[0]
     print (tags)
-    answer = ""
-    while (answer != 'y') & (answer != 'n'):
-        answer = input("Do you would to import games under tag \"{}\"? (y/n)\n".format(tag))
-        if answer == 'y':
-            print("YUHUUU YES!")
-        elif answer == 'n':
+    selected_tags = []
+    for tag in tags:
+        answer = ""
+        answer = input("Do you would to import games under tag \"{}\"? (No to cancel)\n".format(tag))
+        if (answer == 'n') | (answer == 'no') | (answer == 'N') | (answer == 'No') | (answer == 'NO'):
             print("Oh no, wtf")
-        # else:
-        #     print ("error!")
+        else:
+            selected_tags.append(tag)
+            print("yuju!")
+    return (selected_tags)
 
+
+def rom_has_tags(tags, rom):
+    intersection = 0
+    if (set(rom).intersection(set(tags))):
+        intersection = 1
+    return intersection
+
+def select_games (tags, roms):
+    selected_roms = []
+    for rom in roms:
+        if rom_has_tags(tags, rom):
+            selected_roms.append(rom)
+    return selected_roms
 
 def main():
     message_welcome()
@@ -81,7 +92,9 @@ def main():
     splitted_roms = trim_files(roms_list)
     tag_list = list_tags(splitted_roms)
     count_games_tags(tag_list,splitted_roms)
-    import_tag_selector(tag_list)
+    selected_tags = import_tag_selector(tag_list)
+    selected_games = select_games(selected_tags, splitted_roms)
+    print ("Lista de juegos añadidos: {}".format(selected_games))
 
 if __name__== "__main__":
   main()
