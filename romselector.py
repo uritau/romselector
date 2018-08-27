@@ -94,7 +94,14 @@ def main():
     count_games_tags(tag_list,splitted_roms)
     selected_tags = import_tag_selector(tag_list)
     selected_games = select_games(selected_tags, splitted_roms)
-    print ("Lista de juegos añadidos: {}".format(selected_games))
+    print("################# Lista de juegos añadidos #################")
+    for rom in selected_games:
+        print ("## {}".format(rom[1]))
+    print("#############################################################")
+    print ("De un total de {} juegos has añadido {})".format(len(roms_list), len(selected_games)))
+    #To DO:
+    #ADD THE POSSIBILITY TO SELECT "UNIQUE NON ADDED GAMES (Order EUR / USA / JAP / OTHERS)"
+
 
 if __name__== "__main__":
   main()
